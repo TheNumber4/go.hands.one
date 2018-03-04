@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+
+import "github.com/micro/protobuf/ptypes/timestamp/timestamp.proto";
+
+package be.ordina.micro.holiday;
+
+service Holiday {
+	rpc GetNextHoliday(HolidayRequest) returns (HolidayReply) {}
+}
+
+message HolidayRequest {
+	google.protobuf.Timestamp requestDate=1;
+	int64 openDays=2;
+	string isoCountry=3;	
+}
+
+message HolidayReply {
+	google.protobuf.Timestamp replyDate=1;
+}
