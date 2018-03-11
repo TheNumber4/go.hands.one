@@ -5,6 +5,9 @@ this repo contains some simple go program used for hands-on session.
 A simple hello world
 
 ## [channels](channels)
+A simple example of channels
+
+## [wordcount](wordcount)
 A simple word counter using a series of channels
 
 ## [simple.web](simple.web)
