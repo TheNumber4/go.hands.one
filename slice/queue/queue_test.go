@@ -1,6 +1,9 @@
 package queue
 
-import "testing" // github.com/pijalu/go.hands.one/slice/queue
+import (
+	"fmt"
+	"testing"
+) // github.com/pijalu/go.hands.one/slice/queue
 
 func TestAddNextInt(t *testing.T) {
 	input := []int{1, 2, 3, 4, 5}
@@ -49,5 +52,16 @@ func TestClearInt(t *testing.T) {
 	actualSize := q.Size()
 	if actualSize != expectedSize {
 		t.Fatalf("Expected %d elements but got %d", expectedSize, actualSize)
+	}
+}
+
+func TestStringer(t *testing.T) {
+	q := new(Queue)
+	q.Add(1, 2)
+	expected := "Q:[1 2]"
+
+	// Sprint should call Stringer method
+	if fmt.Sprint(q) != expected {
+		t.Fatalf("Expected %s but got %s", expected, fmt.Sprint(q))
 	}
 }

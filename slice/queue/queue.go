@@ -1,7 +1,13 @@
 package queue
 
+import "fmt"
+
 type Queue struct {
 	storage []interface{}
+}
+
+func (q *Queue) String() string {
+	return fmt.Sprintf("Q:%v", q.storage)
 }
 
 func (q *Queue) Clear() {
