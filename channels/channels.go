@@ -48,8 +48,7 @@ func simpleSqr() {
 	nums := []int{2, 4, 8, 16}
 	fmt.Printf("Single thread: %v\n", nums)
 	for nb := range sqr(
-		emit(
-			nums...)) {
+		emit(nums...)) {
 		fmt.Printf("%d\n", nb)
 	}
 }
