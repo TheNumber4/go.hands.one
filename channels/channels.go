@@ -44,13 +44,12 @@ func flatten(ins ...chan int) chan int {
 	return out
 }
 
-func simpleFlatten() {
+func simpleSqr() {
 	nums := []int{2, 4, 8, 16}
 	fmt.Printf("Single thread: %v\n", nums)
-	for nb := range flatten(
-		sqr(
-			emit(
-				nums...))) {
+	for nb := range sqr(
+		emit(
+			nums...)) {
 		fmt.Printf("%d\n", nb)
 	}
 }
@@ -59,7 +58,7 @@ func workersFlatten() {
 	const workerCnt = 4
 
 	nums := []int{2, 4, 8, 16}
-	fmt.Printf("2 worker thread: %v\n", nums)
+	fmt.Printf("%d worker thread: %v\n", workerCnt, nums)
 
 	outputs := make([]chan int, workerCnt)
 
@@ -74,6 +73,6 @@ func workersFlatten() {
 }
 
 func main() {
-	simpleFlatten()
+	simpleSqr()
 	workersFlatten()
 }
